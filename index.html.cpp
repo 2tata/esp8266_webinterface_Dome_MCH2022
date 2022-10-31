@@ -8,7 +8,27 @@ char index_html[] PROGMEM = R"=====(
   <title>WS2812FX Control</title>
   <script type='text/javascript' src='main.js'></script>
 
-  <style>
+ <style>
+
+    @media (min-width: 1000px) {
+      .flex-wrap{
+        align-items:flex-start;
+        justify-content: space-around;
+        
+      }
+    .flex-col {
+      display: flex;
+      }
+      .flex-col:nth-of-type(1){
+        max-width: 35%;
+        
+      }
+       .flex-col:nth-of-type(2){
+        max-width: 70%;
+      }
+    
+    }
+
     body {
       font-family:Arial,sans-serif;
       margin:10px;
@@ -29,11 +49,19 @@ char index_html[] PROGMEM = R"=====(
       flex-wrap:wrap;
     }
 
+    .flex-wrap {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
     .flex-col {
       display:flex;
       flex-direction:column;
-      align-items:center;
+      
     }
+    
 
     input[type='text'] {
       background-color: #d0d0d0;
@@ -42,6 +70,9 @@ char index_html[] PROGMEM = R"=====(
 
     ul {
       list-style-type: none;
+      justify-content: center;
+      display: flex;
+      padding: 0;
     }
 
     ul li a {
@@ -55,7 +86,7 @@ char index_html[] PROGMEM = R"=====(
     }
 
     ul#modes li a {
-      min-width:220px;
+      min-width:200px;
     }
 
     ul.control li a {
@@ -72,7 +103,15 @@ char index_html[] PROGMEM = R"=====(
     }
 
     ul li a.active {
-      border:2px solid #909090;
+      border:3px solid #989797;
+      background-color: #404040;
+      
+    }
+    ul li a.active::before {
+      content: "\2022 ";
+    }
+    ul li a.active::after {
+      content: " \2022 ";
     }
   </style>
 </head>
